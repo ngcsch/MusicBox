@@ -1,4 +1,3 @@
-
 public class MusicBox {
 
     // Variables
@@ -7,63 +6,57 @@ public class MusicBox {
     public String songTitle;
     private String songArtists;
     private String songAlbum;
-    public String songGenre;
+    private String songGenre;
     private String songProducer;
-    public String songMusicLabel;
+    private String songMusicLabel;
     public int noAds;
 
-    //Constructor
+    // Constructor
     public MusicBox(String songID, char premiumSong, String title, String artists, String Album, String genre, String producer, String label) {
         this.songID = songID;
         this.isSongPremium = premiumSong;
         this.songArtists = artists;
-        
-        // -- TODO
-        /* Initialise  the rest of the variables in this Constructor block*/
-    }
-    
-    
-    //Methods
-    public String getSongID() {
-        return songID;
+        this.songTitle = title;
+        this.songAlbum = Album;
+        this.songGenre = genre;
+        this.songProducer = producer;
+        this.songMusicLabel = label;
+        this.noAds = 0; // Initialise noAds to 0
     }
 
-    public String getSongArtists() {
-        return songArtists;
+    // Getters
+    public String getSongTitle() {
+        return songTitle;
     }
 
-    public char getPremiumSong() {
-        return isSongPremium;
+    public String getSongAlbum() {
+        return songAlbum;
     }
 
+    public String getSongGenre() {
+        return songGenre;
+    }
 
-    // -- TODO
-        /* Create the rest of "getters" for the remaining variables */
-    
-        public void playSong(String songID, char premium, int ads) {
-            switch(premium){
-                case 'Y':
-                System.out.println("This is a premium song. Please buy it to play without the ads");
-                playAd(ads, premium);
-                break;
-                case 'N':
-                System.out.println("Thank you for choosing this song. Hope you enjoy listening to it.");
-                playAd(ads, premium);
-                break;
+    public String getSongProducer() {
+        return songProducer;
+    }
+
+    public String getSongMusicLabel() {
+        return songMusicLabel;
+    }
+
+    public int getNoAds() {
+        return noAds;
+    }
+
+    // Method to play ads
+    private void playAd(int ads, char premium) {
+        if (ads == 1) {
+            System.out.println("Playing Ad 1");
+        } else {
+            for (int i = 1; i <= ads; i++) {
+                System.out.println("Playing Ad " + i);
             }
         }
-    
-        private void playAd(int ads, char premium) {
-            if (ads == 1) {
-                System.out.println("Playing Ad 1");
-            }
-            else {
-                for(int i=1; i<=ads; i++){
-                    System.out.println("Playing Ad " + i);
-                }
-            }
-            
-        }
-    
+    }
 }
-
